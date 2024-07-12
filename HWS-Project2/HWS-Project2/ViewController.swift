@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
 	@IBOutlet var button1: UIButton!
 	@IBOutlet var button2: UIButton!
 	@IBOutlet var button3: UIButton!
@@ -36,7 +35,6 @@ class ViewController: UIViewController {
 		button2.layer.borderWidth = 1
 		button3.layer.borderWidth = 1
 		
-		
 		button1.layer.borderColor = UIColor.lightGray.cgColor
 		button2.layer.borderColor = UIColor.lightGray.cgColor
 		button3.layer.borderColor = UIColor.lightGray.cgColor
@@ -44,10 +42,9 @@ class ViewController: UIViewController {
 		askQuestion(action: nil)
 	}
 	
-	func askQuestion(action: UIAlertAction!){
-		
+	func askQuestion(action: UIAlertAction!) {
 		countries.shuffle()
-		correctAnswer = Int.random(in: 0...2)
+		correctAnswer = Int.random(in: 0 ... 2)
 		button1.setImage(UIImage(named: countries[0]), for: .normal)
 		button2.setImage(UIImage(named: countries[1]), for: .normal)
 		button3.setImage(UIImage(named: countries[2]), for: .normal)
@@ -72,16 +69,12 @@ class ViewController: UIViewController {
 			title = "You have answered all questions.\nYour final score is \(score)"
 			questionCounter = 0
 		} else {
-			
 			let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
 			
-			ac.addAction(UIAlertAction(title:"Continue", style: .default, handler: askQuestion))
+			ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
 			
 			present(ac, animated: true)
 			print(questionCounter)
 		}
 	}
-	
-
 }
-
