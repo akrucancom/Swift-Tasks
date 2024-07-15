@@ -40,7 +40,7 @@ class DetailViewController: UIViewController {
 			return
 		}
 		
-		let vcShareTapped = UIActivityViewController(activityItems: [image], applicationActivities: [])
+		let vcShareTapped = UIActivityViewController(activityItems: [image, selectedImage ?? "stormViewImage.jpg"], applicationActivities: [])
 		vcShareTapped.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
 		present(vcShareTapped, animated: true)
 	}
