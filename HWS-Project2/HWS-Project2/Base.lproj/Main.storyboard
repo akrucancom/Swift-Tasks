@@ -52,7 +52,14 @@
                             <constraint firstItem="RtD-D2-gz2" firstAttribute="centerX" secondItem="hch-19-FQS" secondAttribute="centerX" id="t3w-sp-FVT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yR4-eP-7Z1"/>
+                    <navigationItem key="navigationItem" id="yR4-eP-7Z1">
+                        <barButtonItem key="rightBarButtonItem" title="Score" style="plain" id="8et-Hu-ev4">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="scoreButtonTapped:" destination="BYZ-38-t0r" id="9Z0-5d-QSm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="button1" destination="hgb-GA-Q95" id="hFw-1c-LDh"/>
                         <outlet property="button2" destination="hch-19-FQS" id="w2z-ST-6qS"/>
@@ -84,6 +91,9 @@
     </scenes>
     <resources>
         <image name="us" width="200" height="100"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

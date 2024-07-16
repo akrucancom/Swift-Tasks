@@ -24,13 +24,6 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
 		
-		let scoreValue = UIBarButtonItem(customView: scoreLabel)
-		navigationItem.leftBarButtonItem = scoreValue
-		scoreValue.width = 100
-		
-		let counterValue = UIBarButtonItem(customView: counterLabel)
-		navigationItem.rightBarButtonItem = counterValue
-		
 		button1.layer.borderWidth = 1
 		button2.layer.borderWidth = 1
 		button3.layer.borderWidth = 1
@@ -56,25 +49,41 @@ class ViewController: UIViewController {
 	
 	@IBAction func buttonTapped(_ sender: UIButton) {
 		var title: String
+		var message: String
+		var buttonTitle: String = "Continue"
 		questionCounter += 1
 		
 		if sender.tag == correctAnswer {
 			title = "Correct"
 			score += 1
+			message = "Your score is \(score)"
 		} else {
 			title = "Wrong, you have chosen \(countries[sender.tag])"
 			score -= 1
+			message = "Your score is \(score)"
 		}
 		if questionCounter == 10 {
-			title = "You have answered all questions.\nYour final score is \(score)"
+			title = "You have answered all questions"
+			message = "Your final score is \(score)"
+			buttonTitle = "Restart"
 			questionCounter = 0
-		} else {
-			let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
-			
-			ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-			
-			present(ac, animated: true)
-			print(questionCounter)
+			score = 0
 		}
+		let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		
+		ac.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: askQuestion))
+		
+		present(ac, animated: true)
+		print(questionCounter)
+	}
+
+	@IBAction func scoreButtonTapped(_ sender: UIBarButtonItem) {
+		let actionSheetController = UIAlertController(title: "Score", message: "Your score is \(String(score))", preferredStyle: .alert)
+		let closeAlert = UIAlertAction(title: "Return", style: .default) {
+			_ in
+		}
+		
+		actionSheetController.addAction(closeAlert)
+		present(actionSheetController, animated: true, completion: nil)
 	}
 }

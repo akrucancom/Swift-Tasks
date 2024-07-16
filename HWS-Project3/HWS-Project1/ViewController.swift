@@ -8,13 +8,13 @@
 import UIKit
 
 class ViewController: UITableViewController {
+
 	var pictures = [String]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = "Storm Viewer"
 		navigationController?.navigationBar.prefersLargeTitles = true
-		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(starTapped))
 		
 		let fileManager = FileManager.default
 		let path = Bundle.main.resourcePath!
@@ -48,10 +48,5 @@ class ViewController: UITableViewController {
 			navigationController?.pushViewController(viewController, animated: true)
 		}
 	}
-	
-	@objc func starTapped() {
-		let vcStarTapped = UIActivityViewController(activityItems: ["StormViewer app is awesome, you gotta try it out!"], applicationActivities: [])
-		vcStarTapped.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-		present(vcStarTapped, animated: true)
-	}
+
 }
