@@ -28,14 +28,12 @@ class ViewController: UITableViewController {
 		for item in items {
 			if item.hasSuffix("png") {
 				let range = NSRange(location: 0, length: item.utf16.count)
-				itemRegexed = regex.stringByReplacingMatches(in: item, range: range, withTemplate: "")
-				itemRegexed.capitalizeFirstLetter()
-				if !countries.contains(itemRegexed){
-					countries.append(itemRegexed)
+				itemRegexed = regex.stringByReplacingMatches(in: item, range: range, withTemplate: "").capitalized
+				if !countries.contains(itemRegexed) {
+					countries.append(itemRegexed.capitalized)
 				}
 			}
 		}
-		
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,6 +49,7 @@ class ViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let viewController = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController{
 			viewController.selectedImage = countries[indexPath.row]
+
 			navigationController?.pushViewController(viewController, animated: true)
 		}
 	}

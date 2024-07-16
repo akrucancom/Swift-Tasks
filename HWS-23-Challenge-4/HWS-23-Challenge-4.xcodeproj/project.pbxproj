@@ -37,7 +37,6 @@
 		21D0B3F72C4539740034D2A3 /* nigeria@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B3DF2C4539740034D2A3 /* nigeria@3x.png */; };
 		21D0B3F82C4539740034D2A3 /* uk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B3E02C4539740034D2A3 /* uk@2x.png */; };
 		21D0B3F92C4539740034D2A3 /* uk@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B3E12C4539740034D2A3 /* uk@3x.png */; };
-		21D0B3FB2C453F560034D2A3 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B3FA2C453F560034D2A3 /* String+Ext.swift */; };
 		21D0B3FD2C454AEF0034D2A3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B3FC2C454AEF0034D2A3 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +73,6 @@
 		21D0B3DF2C4539740034D2A3 /* nigeria@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nigeria@3x.png"; sourceTree = "<group>"; };
 		21D0B3E02C4539740034D2A3 /* uk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uk@2x.png"; sourceTree = "<group>"; };
 		21D0B3E12C4539740034D2A3 /* uk@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uk@3x.png"; sourceTree = "<group>"; };
-		21D0B3FA2C453F560034D2A3 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		21D0B3FC2C454AEF0034D2A3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,7 +114,6 @@
 				21D0B3BC2C452DD60034D2A3 /* LaunchScreen.storyboard */,
 				21D0B3BF2C452DD60034D2A3 /* Info.plist */,
 				21D0B3C92C45395D0034D2A3 /* Flags */,
-				21D0B3FA2C453F560034D2A3 /* String+Ext.swift */,
 				21D0B3FC2C454AEF0034D2A3 /* DetailViewController.swift */,
 			);
 			path = "HWS-23-Challenge-4";
@@ -251,7 +248,6 @@
 				21D0B3B62C452DD50034D2A3 /* ViewController.swift in Sources */,
 				21D0B3B22C452DD50034D2A3 /* AppDelegate.swift in Sources */,
 				21D0B3FD2C454AEF0034D2A3 /* DetailViewController.swift in Sources */,
-				21D0B3FB2C453F560034D2A3 /* String+Ext.swift in Sources */,
 				21D0B3B42C452DD50034D2A3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
