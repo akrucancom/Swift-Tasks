@@ -13,6 +13,7 @@
 		21D0B4122C455A8B0034D2A3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B4112C455A8B0034D2A3 /* Base */; };
 		21D0B4142C455A8D0034D2A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B4132C455A8D0034D2A3 /* Assets.xcassets */; };
 		21D0B4172C455A8D0034D2A3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B4162C455A8D0034D2A3 /* Base */; };
+		21D0B41F2C465F6F0034D2A3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B41E2C465F6F0034D2A3 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		21D0B4132C455A8D0034D2A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21D0B4162C455A8D0034D2A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21D0B4182C455A8D0034D2A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21D0B41E2C465F6F0034D2A3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				21D0B40A2C455A8B0034D2A3 /* AppDelegate.swift */,
 				21D0B40C2C455A8B0034D2A3 /* SceneDelegate.swift */,
 				21D0B40E2C455A8B0034D2A3 /* ViewController.swift */,
+				21D0B41E2C465F6F0034D2A3 /* TableViewController.swift */,
 				21D0B4102C455A8B0034D2A3 /* Main.storyboard */,
 				21D0B4132C455A8D0034D2A3 /* Assets.xcassets */,
 				21D0B4152C455A8D0034D2A3 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				21D0B40F2C455A8B0034D2A3 /* ViewController.swift in Sources */,
 				21D0B40B2C455A8B0034D2A3 /* AppDelegate.swift in Sources */,
 				21D0B40D2C455A8B0034D2A3 /* SceneDelegate.swift in Sources */,
+				21D0B41F2C465F6F0034D2A3 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
