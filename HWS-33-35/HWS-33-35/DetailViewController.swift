@@ -29,6 +29,9 @@ class DetailViewController: UIViewController {
 		<style> body { font-size: 150%; } </style>
 		</head>
 		<body>
+		<h3>
+		\(detailItem.title)
+		</h3>
 		\(detailItem.body)
 		</body>
 		</html>
@@ -36,14 +39,4 @@ class DetailViewController: UIViewController {
 
 		webView.loadHTMLString(html, baseURL: nil)
 	}
-
-	/*
-	 // MARK: - Navigation
-
-	 // In a storyboard-based application, you will often want to do a little preparation before navigation
-	 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-	     // Get the new view controller using segue.destination.
-	     // Pass the selected object to the new view controller.
-	 }
-	 */
 }
