@@ -11,7 +11,7 @@ import WebKit
 class ViewController: UIViewController, WKNavigationDelegate {
 	var webView: WKWebView!
 	var progressView: UIProgressView!
-	var websites : [String]
+	var websites: [String] = []
 	var startWebsiteIndex = 0
 	
 	override func loadView() {
@@ -24,6 +24,14 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		super.viewDidLoad()
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
+		toolbarItemsLoader()
+		
+		let url = URL(string: "https://" + websites[startWebsiteIndex])!
+		webView.load(URLRequest(url: url))
+		webView.allowsBackForwardNavigationGestures = true
+	}
+	
+	func toolbarItemsLoader() {
 		let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 		let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
 		let back = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: webView, action: #selector(webView.goBack))
@@ -34,10 +42,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		toolbarItems = [progressButton, spacer, back, forward, refresh]
 		navigationController?.isToolbarHidden = false
 		webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
-		
-		let url = URL(string: "https://" + websites[startWebsiteIndex])!
-		webView.load(URLRequest(url: url))
-		webView.allowsBackForwardNavigationGestures = true
 	}
 
 	@objc func openTapped() {
