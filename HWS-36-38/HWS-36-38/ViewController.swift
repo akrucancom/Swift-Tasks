@@ -158,28 +158,28 @@ class ViewController: UIViewController {
 			score += 1
 			
 			if score == levelPasserValue {
-				let scoreAC = UIAlertController(title: "Nice!", message: "Are you ready for the next level?", preferredStyle: .alert)
-				scoreAC.addAction(UIAlertAction(title: "Let's Go!", style: .default, handler: levelUp))
-				present(scoreAC, animated: true)
+				let scoreAlertController = UIAlertController(title: "Nice!", message: "Are you ready for the next level?", preferredStyle: .alert)
+				scoreAlertController.addAction(UIAlertAction(title: "Let's Go!", style: .default, handler: levelUp))
+				present(scoreAlertController, animated: true)
 				levelPasserValue = score + 7
 			}
 		} else {
-			let wrongAnswerAC = UIAlertController(title: "Wrong answer", message: "Try again", preferredStyle: .alert)
+			let wrongAnswerAlertController = UIAlertController(title: "Wrong answer", message: "Try again", preferredStyle: .alert)
 			let closeAC = UIAlertAction(title: "Close", style: .default)
-			wrongAnswerAC.addAction(closeAC)
+			wrongAnswerAlertController.addAction(closeAC)
 			score -= 1
 			levelPasserValue -= 1
-			present(wrongAnswerAC, animated: true)
+			present(wrongAnswerAlertController, animated: true)
 		}
 	}
 	
 	func levelUp(action: UIAlertAction) {
 		if currentLevel == 3 {
 			currentLevel = 1
-			let ac = UIAlertController(title: "Final score: \(score)", message: "Play again?", preferredStyle: .alert)
-			let action = UIAlertAction(title: "Restart", style: .default, handler: levelUp)
-			ac.addAction(action)
-			present(ac, animated: true)
+			let lvlUpAlertController = UIAlertController(title: "Final score: \(score)", message: "Play again?", preferredStyle: .alert)
+			let restartAction = UIAlertAction(title: "Restart", style: .default, handler: levelUp)
+			lvlUpAlertController.addAction(restartAction)
+			present(lvlUpAlertController, animated: true)
 			score = 0
 			levelPasserValue = 7
 			print(currentLevel)
