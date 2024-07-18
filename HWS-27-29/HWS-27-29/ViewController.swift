@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UITableViewController {
-	var allWords = [String]()
+	var allWords = ["silkworm"]
 	var usedWords = [String]()
 
 	override func viewDidLoad() {
@@ -20,10 +20,6 @@ class ViewController: UITableViewController {
 		if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
 			if let startWords = try? String(contentsOf: startWordsURL) {
 				allWords = startWords.components(separatedBy: "\n")
-			}
-
-			if allWords.isEmpty {
-				allWords = ["silkworm"]
 			}
 			
 			startGame()
@@ -47,30 +43,30 @@ class ViewController: UITableViewController {
 	}
 	
 	@objc func promptForAnswer() {
-		let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
-		ac.addTextField()
+		let answerPromptAlertController = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
+		answerPromptAlertController.addTextField()
 		
 		let submitAction = UIAlertAction(title: "Submit", style: .default) {
-			[weak self, weak ac] _ in
-			guard let answer = ac?.textFields?[0].text?.lowercased() else { return }
+			[weak self, weak answerPromptAlertController] _ in
+			guard let answer = answerPromptAlertController?.textFields?[0].text?.lowercased() else { return }
 			self?.submit(answer)
 		}
 		
-		ac.addAction(submitAction)
-		present(ac, animated: true)
+		answerPromptAlertController.addAction(submitAction)
+		present(answerPromptAlertController, animated: true)
 	}
 	
 	@objc func restartGame() {
-		let restartGameAC = UIAlertController(title: "Restart game?", message: "New title word will be generated and answers will be wiped", preferredStyle: .alert)
-		let restartAA = UIAlertAction(title: "Proceed", style: .destructive) { _ in
+		let restartGameAlertController = UIAlertController(title: "Restart game?", message: "New title word will be generated and answers will be wiped", preferredStyle: .alert)
+		let restartAlertAction = UIAlertAction(title: "Proceed", style: .destructive) { _ in
 			self.startGame()
 		}
 		let closeAA = UIAlertAction(title: "Close", style: .default) { _ in
 		}
 		
-		restartGameAC.addAction(restartAA)
-		restartGameAC.addAction(closeAA)
-		present(restartGameAC, animated: true)
+		restartGameAlertController.addAction(restartAlertAction)
+		restartGameAlertController.addAction(closeAA)
+		present(restartGameAlertController, animated: true)
 	}
 	
 	func submit(_ answer: String) {
@@ -80,7 +76,7 @@ class ViewController: UITableViewController {
 		let errorMessage: String
 		
 		if isPossible(word: lowerAnswer) {
-			if isoriginal(word: lowerAnswer) {
+			if isOriginal(word: lowerAnswer) {
 				if isReal(word: lowerAnswer) {
 					usedWords.insert(answer, at: 0)
 					
@@ -99,7 +95,7 @@ class ViewController: UITableViewController {
 			}
 		} else {
 			errorTitle = "Word not possible"
-			errorMessage = "Where do you see letters you used in \(title!.lowercased())"
+			errorMessage = "At least 3 characters that are contained in provided word, ok?"
 			showErrorMessage(errorTitle: errorTitle, errorMessage: errorMessage)
 		}
 	}
@@ -107,21 +103,21 @@ class ViewController: UITableViewController {
 	func isPossible(word: String) -> Bool {
 		guard var tempWord = title?.lowercased() else { return false }
 		
-		for letter in word {
-			if let position = tempWord.firstIndex(of: letter) {
-				tempWord.remove(at: position)
-			} else {
-				return false
-			}
-		}
-		if word.count < 4 || word == tempWord {
+		if word.count < 3 || word == tempWord {
 			return false
 		} else {
+			for letter in word {
+				if let position = tempWord.firstIndex(of: letter) {
+					tempWord.remove(at: position)
+				} else {
+					return false
+				}
+			}
 			return true
 		}
 	}
 	
-	func isoriginal(word: String) -> Bool {
+	func isOriginal(word: String) -> Bool {
 		return !usedWords.contains(word)
 	}
 	
