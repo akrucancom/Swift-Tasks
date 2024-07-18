@@ -14,7 +14,6 @@ class ViewController: UITableViewController {
 		super.viewDidLoad()
 		title = "Storm Viewer"
 		navigationController?.navigationBar.prefersLargeTitles = true
-		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(starTapped))
 		
 		let fileManager = FileManager.default
 		let path = Bundle.main.resourcePath!
@@ -41,17 +40,11 @@ class ViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let viewController = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-			print("Photo index \(indexPath.row)")
-			viewController.selectedImage = pictures[indexPath.row]
-			viewController.imageIndex = indexPath.row + 1
-			viewController.imageCount = pictures.count
-			navigationController?.pushViewController(viewController, animated: true)
+				print("Photo index \(indexPath.row)")
+				viewController.selectedImage = pictures[indexPath.row]
+				viewController.imageIndex = indexPath.row + 1
+				viewController.imageCount = pictures.count
+				navigationController?.pushViewController(viewController, animated: true)
 		}
-	}
-	
-	@objc func starTapped() {
-		let vcStarTapped = UIActivityViewController(activityItems: ["StormViewer app is awesome, you gotta try it out!"], applicationActivities: [])
-		vcStarTapped.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-		present(vcStarTapped, animated: true)
 	}
 }
