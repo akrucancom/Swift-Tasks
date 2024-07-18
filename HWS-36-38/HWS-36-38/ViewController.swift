@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 	var currentAnswer: UITextField!
 	var scoreLabel: UILabel!
 	var letterButtons = [UIButton]()
+	var levelPasserValue: Int = 7
 	
 	var activatedButtons = [UIButton]()
 	var solutions = [String]()
@@ -22,7 +23,8 @@ class ViewController: UIViewController {
 			scoreLabel.text = "Score: \(score)"
 		}
 	}
-	var level = 1
+
+	var currentLevel = 1
 	
 	override func loadView() {
 		view = UIView()
@@ -101,12 +103,11 @@ class ViewController: UIViewController {
 			clear.centerYAnchor.constraint(equalTo: submit.centerYAnchor),
 			clear.heightAnchor.constraint(equalToConstant: 44),
 			
-			buttonsView.widthAnchor.constraint(equalToConstant: 750), // 750 * 2064/1536 - Stosunek rozdziałki nowych iPadów do starych
-			buttonsView.heightAnchor.constraint(equalToConstant: 320), //
+			buttonsView.widthAnchor.constraint(equalToConstant: 750),
+			buttonsView.heightAnchor.constraint(equalToConstant: 320),
 			buttonsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			buttonsView.topAnchor.constraint(equalTo: submit.bottomAnchor, constant: 20),
 			buttonsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20),
-			
 		])
 		
 		let width = 150 // 150 * 2064/1536
@@ -116,8 +117,9 @@ class ViewController: UIViewController {
 			for column in 0..<5 {
 				let letterButton = UIButton(type: .system)
 				letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
-				letterButton.setTitle("WWW", for: .normal)
 				letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
+				letterButton.layer.borderWidth = 1
+				letterButton.layer.borderColor = UIColor.black.cgColor
 				
 				let frame = CGRect(x: column * width, y: row * height, width: width, height: height)
 				letterButton.frame = frame
@@ -155,23 +157,36 @@ class ViewController: UIViewController {
 			currentAnswer.text = ""
 			score += 1
 			
-			if score % 7 == 0 {
+			if score == levelPasserValue {
 				let scoreAC = UIAlertController(title: "Nice!", message: "Are you ready for the next level?", preferredStyle: .alert)
-				scoreAC.addAction(UIAlertAction(title: "LETSOOOOOOOOO", style: .default, handler: levelUp))
+				scoreAC.addAction(UIAlertAction(title: "Let's Go!", style: .default, handler: levelUp))
 				present(scoreAC, animated: true)
+				levelPasserValue = score + 7
 			}
+		} else {
+			let wrongAnswerAC = UIAlertController(title: "Wrong answer", message: "Try again", preferredStyle: .alert)
+			let closeAC = UIAlertAction(title: "Close", style: .default)
+			wrongAnswerAC.addAction(closeAC)
+			score -= 1
+			levelPasserValue -= 1
+			present(wrongAnswerAC, animated: true)
 		}
 	}
 	
 	func levelUp(action: UIAlertAction) {
-		level += 1
-		
+		if currentLevel == 3 {
+			currentLevel = 1
+			let ac = UIAlertController(title: "Final score: \(score)", message: "Play again?", preferredStyle: .alert)
+			let action = UIAlertAction(title: "Restart", style: .default, handler: levelUp)
+			ac.addAction(action)
+			present(ac, animated: true)
+			score = 0
+			levelPasserValue = 7
+			print(currentLevel)
+			return
+		}
 		solutions.removeAll(keepingCapacity: true)
 		loadLevel()
-		
-		for button in letterButtons {
-			button.isHidden = false
-		}
 	}
 	
 	@objc func clearTapped(_ sender: UIButton) {
@@ -180,7 +195,6 @@ class ViewController: UIViewController {
 		for button in activatedButtons {
 			button.isHidden = false
 		}
-		
 		activatedButtons.removeAll()
 	}
 	
@@ -189,7 +203,7 @@ class ViewController: UIViewController {
 		var solutionsString = ""
 		var letterBits = [String]()
 		
-		if let levelFileURL = Bundle.main.url(forResource: "level\(level)", withExtension: "txt") {
+		if let levelFileURL = Bundle.main.url(forResource: "level\(currentLevel)", withExtension: "txt") {
 			if let levelContents = try? String(contentsOf: levelFileURL) {
 				var lines = levelContents.components(separatedBy: "\n")
 				lines.shuffle()
@@ -210,7 +224,6 @@ class ViewController: UIViewController {
 				}
 			}
 		}
-		
 		cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
 		answersLabel.text = solutionsString.trimmingCharacters(in: .whitespacesAndNewlines)
 		
@@ -221,5 +234,9 @@ class ViewController: UIViewController {
 				letterButtons[i].setTitle(letterBits[i], for: .normal)
 			}
 		}
+		for button in letterButtons {
+			button.isHidden = false
+		}
+		currentLevel += 1
 	}
 }
