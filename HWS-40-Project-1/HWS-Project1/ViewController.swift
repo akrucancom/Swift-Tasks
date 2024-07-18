@@ -19,13 +19,20 @@ class ViewController: UITableViewController {
 		let path = Bundle.main.resourcePath!
 		let items = try! fileManager.contentsOfDirectory(atPath: path)
 		
+		performSelector(inBackground: #selector(loadImages), with: items)
+		pictures.sort()
+		print(pictures)
+	}
+	
+	@objc func loadImages(items: [String]) {
 		for item in items {
 			if item.hasPrefix("nssl") {
 				pictures.append(item)
 			}
 		}
-		pictures.sort()
-		print(pictures)
+		DispatchQueue.main.async {
+			self.tableView.reloadData()
+		}
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
