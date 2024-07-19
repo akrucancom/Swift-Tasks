@@ -9,17 +9,16 @@ import UIKit
 
 class ViewController: UICollectionViewController {
 	var pictures = [String]()
-	
-	@IBOutlet var collectionImageView: UIImageView!
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = "Storm Viewer"
 		navigationController?.navigationBar.prefersLargeTitles = true
-		
+
 		let fileManager = FileManager.default
 		let path = Bundle.main.resourcePath!
 		let items = try! fileManager.contentsOfDirectory(atPath: path)
-		
+
 		for item in items {
 			if item.hasPrefix("nssl") {
 				pictures.append(item)
@@ -28,16 +27,16 @@ class ViewController: UICollectionViewController {
 		pictures.sort()
 		print(pictures)
 	}
-	
+
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		pictures.count
 	}
-	
+
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Picture", for: indexPath) as? ImageCell else {
 			fatalError("ImageCell not found.")
 		}
-		
+
 		cell.imageView?.image = UIImage(named: pictures[indexPath.item])
 		return cell
 	}
