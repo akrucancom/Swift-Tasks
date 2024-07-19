@@ -39,39 +39,10 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 	}
 	
 	@objc func addNewPerson() {
-		let chooseSourceAlertController = UIAlertController(title: "Choose source to add picture from:", message: nil, preferredStyle: .actionSheet)
-		let galleryAlertAction = UIAlertAction(title: "Gallery", style: .default) { [weak self] _ in
-			self?.addNewPersonWithGallery()
-		}
-		let cameraAlertAction = UIAlertAction(title: "Camera", style: .default) { [weak self] _ in
-			self?.addNewPersonWithCamera()
-		}
-		let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel)
-		
-		chooseSourceAlertController.addAction(galleryAlertAction)
-		chooseSourceAlertController.addAction(cameraAlertAction)
-		chooseSourceAlertController.addAction(cancelAlertAction)
-		present(chooseSourceAlertController, animated: true)
-	}
-	
-	func addNewPersonWithGallery() {
 		let picker = UIImagePickerController()
 		picker.allowsEditing = true
 		picker.delegate = self
 		present(picker, animated: true)
-	}
-	
-	func addNewPersonWithCamera() {
-		let picker = UIImagePickerController()
-		if(UIImagePickerController.isSourceTypeAvailable(.camera)) {
-			picker.sourceType = .camera
-			present(picker, animated: true)
-		} else {
-			let cameraMissingAlertController = UIAlertController(title: "Camera not found", message: nil, preferredStyle: .alert)
-			let confirmAlertAction = UIAlertAction(title: "Return", style: .default)
-			cameraMissingAlertController.addAction(confirmAlertAction)
-			present(cameraMissingAlertController, animated: true)
-		}
 	}
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
@@ -96,19 +67,9 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 		return paths[0]
 	}
 	
-	func deletePerson(_ person: Person, indexPath: IndexPath) {
-		let deletePhotoAlertController = UIAlertController(title: "Are you sure?", message: "This will delete the photo irreversably", preferredStyle: .alert)
-		let confirmAlertAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
-			self?.people.remove(at: indexPath.item)
-			self?.collectionView.reloadData()
-		}
-		let cancelAlertAction = UIAlertAction(title: "Cancel", style: .default)
-		deletePhotoAlertController.addAction(confirmAlertAction)
-		deletePhotoAlertController.addAction(cancelAlertAction)
-		present(deletePhotoAlertController, animated: true)
-	}
-	
-	func renamePerson(_ person: Person) {
+	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let person = people[indexPath.item]
+		
 		let addNameAlertController = UIAlertController(title: "Rename person:", message: nil, preferredStyle: .alert)
 		
 		addNameAlertController.addTextField()
@@ -119,23 +80,5 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 			person.name = newName
 			self?.collectionView.reloadData()
 		})
-		present(addNameAlertController, animated: true)
-	}
-	
-	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let person = people[indexPath.item]
-		
-		let chooseActionAlertController = UIAlertController(title: "Choose action", message: "Rename or delete Photo?", preferredStyle: .actionSheet)
-		let renamePhotoAlertAction = UIAlertAction(title: "Rename", style: .default) { [weak self, weak person] _ in
-			self?.renamePerson(person!)
-		}
-		
-		let deleteConfirmationPhotoAlertAction = UIAlertAction(title: "Delete", style: .destructive) {
-			[weak self, weak person] _ in
-			self?.deletePerson(person!, indexPath: indexPath)
-		}
-		chooseActionAlertController.addAction(renamePhotoAlertAction)
-		chooseActionAlertController.addAction(deleteConfirmationPhotoAlertAction)
-		present(chooseActionAlertController, animated: true)
 	}
 }
