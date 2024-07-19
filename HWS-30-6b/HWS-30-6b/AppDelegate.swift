@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  HWS-27-29
+//  HWS-30-6b
 //
 //  Created by Comarch-Andrzej on 16/07/2024.
 //
@@ -8,7 +8,7 @@
 import UIKit
 
 @main
-`class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
