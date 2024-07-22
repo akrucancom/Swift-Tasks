@@ -55,12 +55,14 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 	}
 	
 	func addNewPersonWithGallery() {
+
 		let picker = UIImagePickerController()
 		picker.allowsEditing = true
 		picker.delegate = self
 		present(picker, animated: true)
 	}
 	
+
 	func addNewPersonWithCamera() {
 		let picker = UIImagePickerController()
 		if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -73,7 +75,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 			present(cameraMissingAlertController, animated: true)
 		}
 	}
-	
+
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 		guard let image = info[.editedImage] as? UIImage else { return }
 		

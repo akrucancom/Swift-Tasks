@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UICollectionViewController {
 	var pictures = [String]()
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = "Storm Viewer"
@@ -27,7 +26,6 @@ class ViewController: UICollectionViewController {
 		pictures.sort()
 		print(pictures)
 	}
-
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		pictures.count
 	}
