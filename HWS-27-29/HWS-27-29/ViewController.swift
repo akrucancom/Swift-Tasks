@@ -8,27 +8,36 @@
 import UIKit
 
 class ViewController: UITableViewController {
-	var allWords = ["silkworm"]
+	var allWords = [String]()
 	var usedWords = [String]()
+	let defaults = UserDefaults.standard
+	var challengeWord: String = ""
 
 	override func viewDidLoad() {
+		allWords = defaults.object(forKey: "allWords") as? [String] ?? []
+		usedWords = defaults.object(forKey: "usedWords") as? [String] ?? []
+		challengeWord = defaults.object(forKey: "challengeWord") as? String ?? "silkworm"
 		super.viewDidLoad()
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(restartGame))
-
-		if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
-			if let startWords = try? String(contentsOf: startWordsURL) {
-				allWords = startWords.components(separatedBy: "\n")
+		loadWords()
+		startGame()
+	}
+	
+	func loadWords() {
+		if allWords.isEmpty {
+			if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
+				if let startWords = try? String(contentsOf: startWordsURL) {
+					allWords = startWords.components(separatedBy: "\n")
+				}
 			}
-			
-			startGame()
+			defaults.setValue(allWords, forKey: "allWords")
 		}
 	}
 	
 	func startGame() {
-		title = allWords.randomElement()
-		usedWords.removeAll(keepingCapacity: true)
+		title = challengeWord
 		tableView.reloadData()
 	}
 	
@@ -58,14 +67,18 @@ class ViewController: UITableViewController {
 	
 	@objc func restartGame() {
 		let restartGameAlertController = UIAlertController(title: "Restart game?", message: "New title word will be generated and answers will be wiped", preferredStyle: .alert)
-		let restartAlertAction = UIAlertAction(title: "Proceed", style: .destructive) { _ in
-			self.startGame()
+		let restartAlertAction = UIAlertAction(title: "Proceed", style: .destructive) { [weak self] _ in
+			self?.challengeWord = self?.allWords.randomElement() ?? "silkworm"
+			self?.usedWords = []
+			self?.defaults.set(self?.challengeWord, forKey: "challengeWord")
+			self?.defaults.set(self?.usedWords, forKey: "usedWords")
+			self?.startGame()
 		}
-		let closeAA = UIAlertAction(title: "Close", style: .default) { _ in
+		let closeAction = UIAlertAction(title: "Close", style: .default) { _ in
 		}
 		
 		restartGameAlertController.addAction(restartAlertAction)
-		restartGameAlertController.addAction(closeAA)
+		restartGameAlertController.addAction(closeAction)
 		present(restartGameAlertController, animated: true)
 	}
 	
@@ -79,6 +92,7 @@ class ViewController: UITableViewController {
 			if isOriginal(word: lowerAnswer) {
 				if isReal(word: lowerAnswer) {
 					usedWords.insert(answer, at: 0)
+					defaults.setValue(usedWords, forKey: "usedWords")
 					
 					let indexPath = IndexPath(row: 0, section: 0)
 					tableView.insertRows(at: [indexPath], with: .automatic)
@@ -129,9 +143,9 @@ class ViewController: UITableViewController {
 	}
 	
 	func showErrorMessage(errorTitle: String, errorMessage: String) {
-		let errorAC = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
+		let errorAlertController = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
 		let errorAction = UIAlertAction(title: "OK", style: .default)
-		errorAC.addAction(errorAction)
-		present(errorAC, animated: true)
+		errorAlertController.addAction(errorAction)
+		present(errorAlertController, animated: true)
 	}
 }
