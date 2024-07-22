@@ -63,7 +63,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 	
 	func addNewPersonWithCamera() {
 		let picker = UIImagePickerController()
-		if(UIImagePickerController.isSourceTypeAvailable(.camera)) {
+		if UIImagePickerController.isSourceTypeAvailable(.camera) {
 			picker.sourceType = .camera
 			present(picker, animated: true)
 		} else {
@@ -126,13 +126,13 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 		let person = people[indexPath.item]
 		
 		let chooseActionAlertController = UIAlertController(title: "Choose action", message: "Rename or delete Photo?", preferredStyle: .actionSheet)
-		let renamePhotoAlertAction = UIAlertAction(title: "Rename", style: .default) { [weak self, weak person] _ in
-			self?.renamePerson(person!)
+		let renamePhotoAlertAction = UIAlertAction(title: "Rename", style: .default) { [weak self] _ in
+			self?.renamePerson(person)
 		}
 		
 		let deleteConfirmationPhotoAlertAction = UIAlertAction(title: "Delete", style: .destructive) {
-			[weak self, weak person] _ in
-			self?.deletePerson(person!, indexPath: indexPath)
+			[weak self] _ in
+			self?.deletePerson(person, indexPath: indexPath)
 		}
 		chooseActionAlertController.addAction(renamePhotoAlertAction)
 		chooseActionAlertController.addAction(deleteConfirmationPhotoAlertAction)
