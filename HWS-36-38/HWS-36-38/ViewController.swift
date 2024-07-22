@@ -203,9 +203,10 @@ class ViewController: UIViewController {
 		var solutionsString = ""
 		var letterBits = [String]()
 		
-		if let levelFileURL = Bundle.main.url(forResource: "level\(currentLevel)", withExtension: "txt") {
-			if let levelContents = try? String(contentsOf: levelFileURL) {
-				var lines = levelContents.components(separatedBy: "\n")
+		let levelFileURL = Bundle.main.url(forResource: "level\(currentLevel)", withExtension: "txt")
+		let levelContents = try? String(contentsOf: levelFileURL!)
+		if (levelFileURL != nil) && (levelContents != nil) {
+				var lines = levelContents?.components(separatedBy: "\n") ?? [""]
 				lines.shuffle()
 				
 				for (index, line) in lines.enumerated() {
@@ -222,7 +223,6 @@ class ViewController: UIViewController {
 					let bits = answer.components(separatedBy: "|")
 					letterBits += bits
 				}
-			}
 		}
 		cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
 		answersLabel.text = solutionsString.trimmingCharacters(in: .whitespacesAndNewlines)
