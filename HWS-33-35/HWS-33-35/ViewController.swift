@@ -76,8 +76,6 @@ class ViewController: UITableViewController {
 	}
 	
 	func downloadData(urlString: String) {
-		let url: URL?
-		let data: Data?
 		guard let url = URL(string: urlString), let data = try? Data(contentsOf: url) else {
 			return
 		}
