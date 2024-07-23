@@ -132,7 +132,7 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		performSelector(inBackground: #selector(loadLevel), with: nil)
+		loadLevel()
 		// Do any additional setup after loading the view.
 	}
 	
@@ -186,7 +186,7 @@ class ViewController: UIViewController {
 			return
 		}
 		solutions.removeAll(keepingCapacity: true)
-		performSelector(inBackground: #selector(loadLevel), with: nil)
+		loadLevel()
 	}
 	
 	@objc func clearTapped(_ sender: UIButton) {
@@ -198,14 +198,15 @@ class ViewController: UIViewController {
 		activatedButtons.removeAll()
 	}
 	
-	@objc func loadLevel() {
+	func loadLevel() {
 		var clueString = ""
 		var solutionsString = ""
 		var letterBits = [String]()
 		
-		if let levelFileURL = Bundle.main.url(forResource: "level\(currentLevel)", withExtension: "txt") {
-			if let levelContents = try? String(contentsOf: levelFileURL) {
-				var lines = levelContents.components(separatedBy: "\n")
+		let levelFileURL = Bundle.main.url(forResource: "level\(currentLevel)", withExtension: "txt")
+		let levelContents = try? String(contentsOf: levelFileURL!)
+		if (levelFileURL != nil) && (levelContents != nil) {
+				var lines = levelContents?.components(separatedBy: "\n") ?? [""]
 				lines.shuffle()
 				
 				for (index, line) in lines.enumerated() {
@@ -222,21 +223,19 @@ class ViewController: UIViewController {
 					let bits = answer.components(separatedBy: "|")
 					letterBits += bits
 				}
+		}
+		cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
+		answersLabel.text = solutionsString.trimmingCharacters(in: .whitespacesAndNewlines)
+		
+		letterButtons.shuffle()
+		
+		if letterButtons.count == letterBits.count {
+			for i in 0..<letterButtons.count {
+				letterButtons[i].setTitle(letterBits[i], for: .normal)
 			}
 		}
-		DispatchQueue.main.async {
-			self.cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
-			self.answersLabel.text = solutionsString.trimmingCharacters(in: .whitespacesAndNewlines)
-			
-			self.letterButtons.shuffle()
-			if self.letterButtons.count == letterBits.count {
-				for i in 0..<self.letterButtons.count {
-					self.letterButtons[i].setTitle(letterBits[i], for: .normal)
-				}
-			}
-			for button in self.letterButtons {
-				button.isHidden = false
-			}
+		for button in letterButtons {
+			button.isHidden = false
 		}
 		currentLevel += 1
 	}
