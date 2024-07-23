@@ -15,8 +15,6 @@ class ViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		let urlString: String
 		
 		searchButton()
 		creditsButton()
@@ -44,15 +42,15 @@ class ViewController: UITableViewController {
 		let searchAC = UIAlertController(title: "Search for petition", message: "Input text:", preferredStyle: .alert)
 		searchAC.addTextField()
 		
-		let submitAC = UIAlertAction(title: "Submit", style: .default) { [unowned searchAC] _ in
+		let submitAC = UIAlertAction(title: "Submit", style: .default) { [weak self, unowned searchAC] _ in
 			let answer = searchAC.textFields! [0]
-			if answer.text == "" {
+			if answer.text?.isEmpty != nil {
 				return
 			}
-			self.petitionsBackup = self.petitions
-			self.petitions = self.petitions.filter { $0.title.contains(answer.text ?? " ") || $0.body.contains(answer.text ?? " ") }
-			self.tableView.reloadData()
-			self.returnButton()
+			self?.petitionsBackup = self?.petitions ?? []
+			self?.petitions = self?.petitions.filter { $0.title.contains(answer.text ?? " ") || $0.body.contains(answer.text ?? " ") } ?? []
+			self?.tableView.reloadData()
+			self?.returnButton()
 		}
 		
 		searchAC.addAction(submitAC)
@@ -78,12 +76,10 @@ class ViewController: UITableViewController {
 	}
 	
 	func downloadData(urlString: String) {
-		if let url = URL(string: urlString) {
-			if let data = try? Data(contentsOf: url) {
-				parse(json: data)
-				return
-			}
+		guard let url = URL(string: urlString), let data = try? Data(contentsOf: url) else {
+			return
 		}
+		parse(json: data)
 	}
 	
 	func showError() {
