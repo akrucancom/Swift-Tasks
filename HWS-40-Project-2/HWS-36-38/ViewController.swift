@@ -132,7 +132,7 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		loadLevel()
+		performSelector(inBackground: #selector(loadLevel), with: nil)
 		// Do any additional setup after loading the view.
 	}
 	
@@ -229,7 +229,6 @@ class ViewController: UIViewController {
 			self.answersLabel.text = solutionsString.trimmingCharacters(in: .whitespacesAndNewlines)
 			
 			self.letterButtons.shuffle()
-			
 			if self.letterButtons.count == letterBits.count {
 				for i in 0..<self.letterButtons.count {
 					self.letterButtons[i].setTitle(letterBits[i], for: .normal)
@@ -238,7 +237,7 @@ class ViewController: UIViewController {
 			for button in self.letterButtons {
 				button.isHidden = false
 			}
-			self.currentLevel += 1
 		}
+		currentLevel += 1
 	}
 }
