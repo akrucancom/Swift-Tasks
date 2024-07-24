@@ -81,12 +81,12 @@ class ViewController: UITableViewController {
 		}
 		
 		else {
-			for counter in 0 ..< (pictures.count) {
+			for counter in 0 ..< pictures.count {
 				names.append(pictures[counter].name)
 			}
 			for item in items {
 				if item.hasPrefix("nssl") {
-					if !(names.contains(item)) {
+					if !names.contains(item) {
 						let picture = ImageData(name: item, views: 0)
 						pictures.append(picture)
 						save()

@@ -12,6 +12,7 @@ class ViewController: UITableViewController {
 	var usedWords = [String]()
 	let defaults = UserDefaults.standard
 	var challengeWord: String = ""
+	var firstGame = true
 
 	override func viewDidLoad() {
 		allWords = defaults.object(forKey: "allWords") as? [String] ?? []
@@ -68,11 +69,7 @@ class ViewController: UITableViewController {
 	@objc func restartGame() {
 		let restartGameAlertController = UIAlertController(title: "Restart game?", message: "New title word will be generated and answers will be wiped", preferredStyle: .alert)
 		let restartAlertAction = UIAlertAction(title: "Proceed", style: .destructive) { [weak self] _ in
-			self?.challengeWord = self?.allWords.randomElement() ?? "silkworm"
-			self?.usedWords = []
-			self?.defaults.set(self?.challengeWord, forKey: "challengeWord")
-			self?.defaults.set(self?.usedWords, forKey: "usedWords")
-			self?.startGame()
+			self?.restartGameActionHandler()
 		}
 		let closeAction = UIAlertAction(title: "Close", style: .default) { _ in
 		}
@@ -80,6 +77,14 @@ class ViewController: UITableViewController {
 		restartGameAlertController.addAction(restartAlertAction)
 		restartGameAlertController.addAction(closeAction)
 		present(restartGameAlertController, animated: true)
+	}
+	
+	func restartGameActionHandler() {
+		challengeWord = allWords.randomElement() ?? "silkworm"
+		usedWords = []
+		defaults.set(challengeWord, forKey: "challengeWord")
+		defaults.set(usedWords, forKey: "usedWords")
+		startGame()
 	}
 	
 	func submit(_ answer: String) {
