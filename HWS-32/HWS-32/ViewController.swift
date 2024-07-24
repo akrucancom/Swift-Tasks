@@ -31,6 +31,10 @@ class TableViewController: UITableViewController {
 		let submitAction = UIAlertAction(title: "Submit", style: .default) {
 			[weak self, weak addItemAlertController] _ in
 			guard let answer = addItemAlertController?.textFields?[0].text else { return }
+			if answer == ""  {
+				self?.showError(title: "Empty answer!", message: "Can't add an empty item to the list")
+				return
+			}
 			self?.submit(answer)
 		}
 		
@@ -62,6 +66,10 @@ class TableViewController: UITableViewController {
 	}
 	
 	@objc func shareList() {
+		if shoppingList.isEmpty {
+			showError(title: "Error", message: "Can't share an empty list")
+			return
+		}
 		let shareButtonTapped = UIActivityViewController(activityItems: [shoppingList, "myshoppingList.txt"], applicationActivities: [])
 		shareButtonTapped.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
 		present(shareButtonTapped, animated: true)
