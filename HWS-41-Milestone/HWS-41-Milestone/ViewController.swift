@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	
 	override func loadView() {
 		view = UIView()
-		view.backgroundColor = .white
+		view.backgroundColor = .systemBackground
 		
 		livesLabel = UILabel()
 		livesLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -62,6 +62,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		attemptTextField.translatesAutoresizingMaskIntoConstraints = false
 		attemptTextField.font = UIFont.systemFont(ofSize: 24)
 		attemptTextField.layer.borderWidth = 1
+		attemptTextField.layer.borderColor = CGColor(gray: 0.5, alpha: 1)
 		attemptTextField.borderStyle = .roundedRect
 		attemptTextField.placeholder = "Input your guess here"
 		view.addSubview(attemptTextField)
@@ -89,16 +90,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		guard let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt"), let startWords = try? String(contentsOf: startWordsURL) else {
 			showAlert(title: "File not found", message: "Loading backup option...")
 			allWords = ["METAMORPH", "ULTIMATUM", "MIRROR", "ASCENDENCY", "BLIGHT"]
-			print(allWords)
 			return
 		}
 		allWords = startWords.components(separatedBy: "\n")
-		print(allWords)
+		allWords = startWords.components(separatedBy: "\n")
 	}
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		let answer = textField.text
-		if answer!.isEmpty {
+		guard let answer = textField.text else { return true }
+		if answer.isEmpty {
 			return true
 		}
 		checkLetter(letter: answer)
@@ -106,13 +106,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		return true
 	}
 
-	func checkLetter(letter: String?) {
-		if validGuesses.contains(letter ?? "?") || invalidGuesses.contains(letter ?? "?") {
-			showAlert(title: "Letter \"\(String(describing: letter ?? ""))\" has been guessed already", message: "Try again!")
+	func checkLetter(letter: String) {
+		if validGuesses.contains(letter) || invalidGuesses.contains(letter) {
+			showAlert(title: "Letter \"\(String(describing: letter))\" has been guessed already", message: "Try again!")
 			return
 		}
-		if seekedWord.contains(letter!) {
-			validGuesses += letter ?? ""
+		if seekedWord.contains(letter) {
+			validGuesses += letter
 			attemptedWord = ""
 			var addedLetter = false
 			for character in seekedWord {
@@ -127,21 +127,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
 				}
 				addedLetter = false
 			}
-			print(attemptedWord)
 			if !(attemptedWord.contains(separator)) {
 				showAlert(title: "You won!", message: "\"\(seekedWord)\" was the seeked word!")
 				startGame()
 			}
 			return
 		}
-		invalidGuesses += " \(letter ?? "?")"
+		invalidGuesses += " \(letter)"
 		lives -= 1
 		if lives == 0 {
 			showAlert(title: "Game over!", message: "You have run out of lives! \"\(seekedWord)\" was the seeked word")
 			startGame()
 		}
-		showAlert(title: "Wrong!", message: "\"\(String(describing: letter ?? "?"))\" is not found in seeked word!\nLives left: \(lives)")
-		print(attemptedWord.contains(separator))
+		showAlert(title: "Wrong!", message: "\"\(String(describing: letter))\" is not found in seeked word!\nLives left: \(lives)")
 	}
 	
 	func startGame() {
