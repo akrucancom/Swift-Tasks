@@ -31,7 +31,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 		scheduleLocal(5)
 	}
 	
-	@objc func scheduleLocal(_ sender: TimeInterval) {
+	@objc func scheduleLocal(_ timeInterval: TimeInterval) {
 		registerCategories()
 		
 		let center = UNUserNotificationCenter.current()
@@ -44,7 +44,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 		content.userInfo = ["customData": "fizzbuzz"]
 		content.sound = .default
 		
-		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: sender, repeats: false)
+		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
 		let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
 		center.add(request)
 	}
@@ -62,9 +62,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 
 	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
 		let userInfo = response.notification.request.content.userInfo
-		
 		if let customData = userInfo["customData"] as? String {
-			print("Custom data received: \(customData)")
 			
 			switch response.actionIdentifier {
 			case UNNotificationDefaultActionIdentifier:
