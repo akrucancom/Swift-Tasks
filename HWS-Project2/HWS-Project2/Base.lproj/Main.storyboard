@@ -53,7 +53,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yR4-eP-7Z1">
-                        <barButtonItem key="rightBarButtonItem" title="Score" style="plain" id="8et-Hu-ev4">
+                        <barButtonItem key="rightBarButtonItem" title="Score" id="8et-Hu-ev4">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="scoreButtonTapped:" destination="BYZ-38-t0r" id="9Z0-5d-QSm"/>

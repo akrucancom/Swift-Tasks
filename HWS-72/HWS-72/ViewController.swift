@@ -80,7 +80,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 				break
 			}
 		}
-		
 		completionHandler()
 	}
 	
