@@ -19,6 +19,8 @@
 		21D0B5AB2C4FDA720034D2A3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B5AA2C4FDA720034D2A3 /* Base */; };
 		21D0B5AF2C4FDA720034D2A3 /* Extenstion.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 21D0B5A02C4FDA720034D2A3 /* Extenstion.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		21D0B5B52C4FDD590034D2A3 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B5B42C4FDD590034D2A3 /* Action.js */; };
+		21D0B5CE2C510F960034D2A3 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B5CD2C510F960034D2A3 /* Script.swift */; };
+		21D0B5D02C5137860034D2A3 /* ScriptsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B5CF2C5137860034D2A3 /* ScriptsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		21D0B5AA2C4FDA720034D2A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		21D0B5AC2C4FDA720034D2A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21D0B5B42C4FDD590034D2A3 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
+		21D0B5CD2C510F960034D2A3 /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
+		21D0B5CF2C5137860034D2A3 /* ScriptsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 			children = (
 				21D0B5A52C4FDA720034D2A3 /* Media.xcassets */,
 				21D0B5A72C4FDA720034D2A3 /* ActionViewController.swift */,
+				21D0B5CF2C5137860034D2A3 /* ScriptsTableViewController.swift */,
+				21D0B5CD2C510F960034D2A3 /* Script.swift */,
 				21D0B5A92C4FDA720034D2A3 /* MainInterface.storyboard */,
 				21D0B5AC2C4FDA720034D2A3 /* Info.plist */,
 				21D0B5B42C4FDD590034D2A3 /* Action.js */,
@@ -249,7 +255,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D0B5CE2C510F960034D2A3 /* Script.swift in Sources */,
 				21D0B5A82C4FDA720034D2A3 /* ActionViewController.swift in Sources */,
+				21D0B5D02C5137860034D2A3 /* ScriptsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
