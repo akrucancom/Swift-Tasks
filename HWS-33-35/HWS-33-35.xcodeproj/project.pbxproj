@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		215DA4822C57DE7100A07BF6 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DA4812C57DE7100A07BF6 /* Viewable.swift */; };
 		21D0B46F2C47A8A70034D2A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B46E2C47A8A70034D2A3 /* AppDelegate.swift */; };
 		21D0B4712C47A8A70034D2A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B4702C47A8A70034D2A3 /* SceneDelegate.swift */; };
 		21D0B4732C47A8A70034D2A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B4722C47A8A70034D2A3 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		215DA4812C57DE7100A07BF6 /* Viewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
 		21D0B46B2C47A8A70034D2A3 /* HWS-33-35.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HWS-33-35.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D0B46E2C47A8A70034D2A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21D0B4702C47A8A70034D2A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		215DA47E2C57DE0400A07BF6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21D0B47C2C47A8A90034D2A3 /* Info.plist */,
+				21D0B4742C47A8A70034D2A3 /* Main.storyboard */,
+				21D0B4792C47A8A90034D2A3 /* LaunchScreen.storyboard */,
+				21D0B4772C47A8A90034D2A3 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		215DA47F2C57DE2700A07BF6 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				21D0B4862C47B94E0034D2A3 /* DetailViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		215DA4802C57DE4600A07BF6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				215DA4812C57DE7100A07BF6 /* Viewable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		21D0B4622C47A8A70034D2A3 = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +91,14 @@
 		21D0B46D2C47A8A70034D2A3 /* HWS-33-35 */ = {
 			isa = PBXGroup;
 			children = (
+				215DA4802C57DE4600A07BF6 /* Protocols */,
 				21D0B46E2C47A8A70034D2A3 /* AppDelegate.swift */,
 				21D0B4702C47A8A70034D2A3 /* SceneDelegate.swift */,
-				21D0B4722C47A8A70034D2A3 /* ViewController.swift */,
-				21D0B4862C47B94E0034D2A3 /* DetailViewController.swift */,
 				21D0B4822C47B5620034D2A3 /* Petition.swift */,
 				21D0B4842C47B5C70034D2A3 /* Petitions.swift */,
-				21D0B4742C47A8A70034D2A3 /* Main.storyboard */,
-				21D0B4772C47A8A90034D2A3 /* Assets.xcassets */,
-				21D0B4792C47A8A90034D2A3 /* LaunchScreen.storyboard */,
-				21D0B47C2C47A8A90034D2A3 /* Info.plist */,
+				215DA47F2C57DE2700A07BF6 /* Screens */,
+				21D0B4722C47A8A70034D2A3 /* ViewController.swift */,
+				215DA47E2C57DE0400A07BF6 /* Resources */,
 			);
 			path = "HWS-33-35";
 			sourceTree = "<group>";
@@ -147,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215DA4822C57DE7100A07BF6 /* Viewable.swift in Sources */,
 				21D0B4732C47A8A70034D2A3 /* ViewController.swift in Sources */,
 				21D0B4832C47B5620034D2A3 /* Petition.swift in Sources */,
 				21D0B46F2C47A8A70034D2A3 /* AppDelegate.swift in Sources */,
