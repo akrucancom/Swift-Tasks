@@ -14,10 +14,7 @@ class PictureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		title = picture?.caption
-		print(picture!.name, picture!.caption)
-		guard let picture else { return }
-		let picturePath = getDocumentsDirectory().appendingPathComponent(picture.name)
-		photoImageView.image = UIImage(contentsOfFile: picturePath.path)
+		getPicture()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +25,12 @@ class PictureViewController: UIViewController {
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		navigationController?.hidesBarsOnTap = false
+	}
+	
+	func getPicture() {
+		guard let picture else { return }
+		let picturePath = getDocumentsDirectory().appendingPathComponent(picture.name)
+		photoImageView.image = UIImage(contentsOfFile: picturePath.path)
 	}
 	
 	func getDocumentsDirectory() -> URL {
