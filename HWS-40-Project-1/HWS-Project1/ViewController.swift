@@ -47,11 +47,11 @@ class ViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let viewController = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-				print("Photo index \(indexPath.row)")
-				viewController.selectedImage = pictures[indexPath.row]
-				viewController.imageIndex = indexPath.row + 1
-				viewController.imageCount = pictures.count
-				navigationController?.pushViewController(viewController, animated: true)
+			print("Photo index \(indexPath.row)")
+			viewController.selectedImage = pictures[indexPath.row]
+			viewController.imageIndex = indexPath.row + 1
+			viewController.imageViews = pictures.[indexPath.row].views
+			navigationController?.pushViewController(viewController, animated: true)
 		}
 	}
 }
