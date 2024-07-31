@@ -7,35 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		215DA4822C57DE7100A07BF6 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DA4812C57DE7100A07BF6 /* Viewable.swift */; };
-		21D0B46F2C47A8A70034D2A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B46E2C47A8A70034D2A3 /* AppDelegate.swift */; };
-		21D0B4712C47A8A70034D2A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B4702C47A8A70034D2A3 /* SceneDelegate.swift */; };
-		21D0B4732C47A8A70034D2A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B4722C47A8A70034D2A3 /* ViewController.swift */; };
-		21D0B4762C47A8A70034D2A3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B4752C47A8A70034D2A3 /* Base */; };
-		21D0B4782C47A8A90034D2A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B4772C47A8A90034D2A3 /* Assets.xcassets */; };
-		21D0B47B2C47A8A90034D2A3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 21D0B47A2C47A8A90034D2A3 /* Base */; };
-		21D0B4832C47B5620034D2A3 /* Petition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B4822C47B5620034D2A3 /* Petition.swift */; };
-		21D0B4852C47B5C70034D2A3 /* Petitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B4842C47B5C70034D2A3 /* Petitions.swift */; };
-		21D0B4872C47B94E0034D2A3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0B4862C47B94E0034D2A3 /* DetailViewController.swift */; };
+		2138E5942C59202700067BB9 /* PetitionsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2138E5932C59202700067BB9 /* PetitionsRepo.swift */; };
+		2138E5962C5925C300067BB9 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2138E5952C5925C300067BB9 /* Utilities.swift */; };
+		215DA4A72C58DF3800A07BF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DA4A62C58DF3800A07BF6 /* AppDelegate.swift */; };
+		215DA4A92C58DF3800A07BF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DA4A82C58DF3800A07BF6 /* SceneDelegate.swift */; };
+		215DA4AB2C58DF3800A07BF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DA4AA2C58DF3800A07BF6 /* ViewController.swift */; };
+		215DA4AE2C58DF3800A07BF6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 215DA4AD2C58DF3800A07BF6 /* Base */; };
+		215DA4B02C58DF3900A07BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215DA4AF2C58DF3900A07BF6 /* Assets.xcassets */; };
+		215DA4B32C58DF3900A07BF6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 215DA4B22C58DF3900A07BF6 /* Base */; };
+		215DA4BB2C58DF4B00A07BF6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DA4BA2C58DF4B00A07BF6 /* Protocols.swift */; };
+		215DA4BD2C58E02000A07BF6 /* PetitionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DA4BC2C58E02000A07BF6 /* PetitionsInteractor.swift */; };
+		215DA4BF2C58E11100A07BF6 /* PetitionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DA4BE2C58E11100A07BF6 /* PetitionsPresenter.swift */; };
+		215DA4C12C58E25200A07BF6 /* PetitionsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DA4C02C58E25200A07BF6 /* PetitionsEntity.swift */; };
+		215DA4C32C58E2A700A07BF6 /* PetitionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DA4C22C58E2A700A07BF6 /* PetitionsRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		215DA4812C57DE7100A07BF6 /* Viewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
-		21D0B46B2C47A8A70034D2A3 /* HWS-33-35.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HWS-33-35.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		21D0B46E2C47A8A70034D2A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		21D0B4702C47A8A70034D2A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		21D0B4722C47A8A70034D2A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		21D0B4752C47A8A70034D2A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		21D0B4772C47A8A90034D2A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		21D0B47A2C47A8A90034D2A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		21D0B47C2C47A8A90034D2A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21D0B4822C47B5620034D2A3 /* Petition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petition.swift; sourceTree = "<group>"; };
-		21D0B4842C47B5C70034D2A3 /* Petitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petitions.swift; sourceTree = "<group>"; };
-		21D0B4862C47B94E0034D2A3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2138E5932C59202700067BB9 /* PetitionsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsRepo.swift; sourceTree = "<group>"; };
+		2138E5952C5925C300067BB9 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		215DA4A32C58DF3800A07BF6 /* VIPER-medium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VIPER-medium.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		215DA4A62C58DF3800A07BF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		215DA4A82C58DF3800A07BF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		215DA4AA2C58DF3800A07BF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		215DA4AD2C58DF3800A07BF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		215DA4AF2C58DF3900A07BF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		215DA4B22C58DF3900A07BF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		215DA4B42C58DF3900A07BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		215DA4BA2C58DF4B00A07BF6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		215DA4BC2C58E02000A07BF6 /* PetitionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsInteractor.swift; sourceTree = "<group>"; };
+		215DA4BE2C58E11100A07BF6 /* PetitionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsPresenter.swift; sourceTree = "<group>"; };
+		215DA4C02C58E25200A07BF6 /* PetitionsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsEntity.swift; sourceTree = "<group>"; };
+		215DA4C22C58E2A700A07BF6 /* PetitionsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionsRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		21D0B4682C47A8A70034D2A3 /* Frameworks */ = {
+		215DA4A02C58DF3800A07BF6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,100 +51,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		215DA47E2C57DE0400A07BF6 /* Resources */ = {
+		215DA49A2C58DF3800A07BF6 = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		215DA47F2C57DE2700A07BF6 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				21D0B4862C47B94E0034D2A3 /* DetailViewController.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		215DA4802C57DE4600A07BF6 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				215DA4812C57DE7100A07BF6 /* Viewable.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		21D0B4622C47A8A70034D2A3 = {
-			isa = PBXGroup;
-			children = (
-				21D0B46D2C47A8A70034D2A3 /* HWS-33-35 */,
-				21D0B46C2C47A8A70034D2A3 /* Products */,
+				215DA4A52C58DF3800A07BF6 /* VIPER-medium */,
+				215DA4A42C58DF3800A07BF6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		21D0B46C2C47A8A70034D2A3 /* Products */ = {
+		215DA4A42C58DF3800A07BF6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21D0B46B2C47A8A70034D2A3 /* HWS-33-35.app */,
+				215DA4A32C58DF3800A07BF6 /* VIPER-medium.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		21D0B46D2C47A8A70034D2A3 /* HWS-33-35 */ = {
+		215DA4A52C58DF3800A07BF6 /* VIPER-medium */ = {
 			isa = PBXGroup;
 			children = (
-				21D0B47C2C47A8A90034D2A3 /* Info.plist */,
-				21D0B4742C47A8A70034D2A3 /* Main.storyboard */,
-				21D0B4792C47A8A90034D2A3 /* LaunchScreen.storyboard */,
-				21D0B4772C47A8A90034D2A3 /* Assets.xcassets */,
-				215DA4802C57DE4600A07BF6 /* Protocols */,
-				21D0B46E2C47A8A70034D2A3 /* AppDelegate.swift */,
-				21D0B4702C47A8A70034D2A3 /* SceneDelegate.swift */,
-				21D0B4822C47B5620034D2A3 /* Petition.swift */,
-				21D0B4842C47B5C70034D2A3 /* Petitions.swift */,
-				215DA47F2C57DE2700A07BF6 /* Screens */,
-				21D0B4722C47A8A70034D2A3 /* ViewController.swift */,
-				215DA47E2C57DE0400A07BF6 /* Resources */,
+				215DA4A62C58DF3800A07BF6 /* AppDelegate.swift */,
+				215DA4A82C58DF3800A07BF6 /* SceneDelegate.swift */,
+				215DA4AA2C58DF3800A07BF6 /* ViewController.swift */,
+				215DA4AC2C58DF3800A07BF6 /* Main.storyboard */,
+				215DA4AF2C58DF3900A07BF6 /* Assets.xcassets */,
+				215DA4B12C58DF3900A07BF6 /* LaunchScreen.storyboard */,
+				215DA4B42C58DF3900A07BF6 /* Info.plist */,
+				215DA4BA2C58DF4B00A07BF6 /* Protocols.swift */,
+				2138E5932C59202700067BB9 /* PetitionsRepo.swift */,
+				215DA4BC2C58E02000A07BF6 /* PetitionsInteractor.swift */,
+				215DA4C02C58E25200A07BF6 /* PetitionsEntity.swift */,
+				215DA4C22C58E2A700A07BF6 /* PetitionsRouter.swift */,
+				215DA4BE2C58E11100A07BF6 /* PetitionsPresenter.swift */,
+				2138E5952C5925C300067BB9 /* Utilities.swift */,
 			);
-			path = "HWS-33-35";
+			path = "VIPER-medium";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		21D0B46A2C47A8A70034D2A3 /* HWS-33-35 */ = {
+		215DA4A22C58DF3800A07BF6 /* VIPER-medium */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21D0B47F2C47A8A90034D2A3 /* Build configuration list for PBXNativeTarget "HWS-33-35" */;
+			buildConfigurationList = 215DA4B72C58DF3900A07BF6 /* Build configuration list for PBXNativeTarget "VIPER-medium" */;
 			buildPhases = (
-				21D0B4672C47A8A70034D2A3 /* Sources */,
-				21D0B4682C47A8A70034D2A3 /* Frameworks */,
-				21D0B4692C47A8A70034D2A3 /* Resources */,
+				215DA49F2C58DF3800A07BF6 /* Sources */,
+				215DA4A02C58DF3800A07BF6 /* Frameworks */,
+				215DA4A12C58DF3800A07BF6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "HWS-33-35";
-			productName = "HWS-33-35";
-			productReference = 21D0B46B2C47A8A70034D2A3 /* HWS-33-35.app */;
+			name = "VIPER-medium";
+			productName = "VIPER-medium";
+			productReference = 215DA4A32C58DF3800A07BF6 /* VIPER-medium.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		21D0B4632C47A8A70034D2A3 /* Project object */ = {
+		215DA49B2C58DF3800A07BF6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					21D0B46A2C47A8A70034D2A3 = {
+					215DA4A22C58DF3800A07BF6 = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = 21D0B4662C47A8A70034D2A3 /* Build configuration list for PBXProject "HWS-33-35" */;
+			buildConfigurationList = 215DA49E2C58DF3800A07BF6 /* Build configuration list for PBXProject "VIPER-medium" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -146,59 +131,62 @@
 				en,
 				Base,
 			);
-			mainGroup = 21D0B4622C47A8A70034D2A3;
-			productRefGroup = 21D0B46C2C47A8A70034D2A3 /* Products */;
+			mainGroup = 215DA49A2C58DF3800A07BF6;
+			productRefGroup = 215DA4A42C58DF3800A07BF6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				21D0B46A2C47A8A70034D2A3 /* HWS-33-35 */,
+				215DA4A22C58DF3800A07BF6 /* VIPER-medium */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		21D0B4692C47A8A70034D2A3 /* Resources */ = {
+		215DA4A12C58DF3800A07BF6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21D0B4782C47A8A90034D2A3 /* Assets.xcassets in Resources */,
-				21D0B47B2C47A8A90034D2A3 /* Base in Resources */,
-				21D0B4762C47A8A70034D2A3 /* Base in Resources */,
+				215DA4B02C58DF3900A07BF6 /* Assets.xcassets in Resources */,
+				215DA4B32C58DF3900A07BF6 /* Base in Resources */,
+				215DA4AE2C58DF3800A07BF6 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		21D0B4672C47A8A70034D2A3 /* Sources */ = {
+		215DA49F2C58DF3800A07BF6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				215DA4822C57DE7100A07BF6 /* Viewable.swift in Sources */,
-				21D0B4732C47A8A70034D2A3 /* ViewController.swift in Sources */,
-				21D0B4832C47B5620034D2A3 /* Petition.swift in Sources */,
-				21D0B46F2C47A8A70034D2A3 /* AppDelegate.swift in Sources */,
-				21D0B4872C47B94E0034D2A3 /* DetailViewController.swift in Sources */,
-				21D0B4712C47A8A70034D2A3 /* SceneDelegate.swift in Sources */,
-				21D0B4852C47B5C70034D2A3 /* Petitions.swift in Sources */,
+				2138E5942C59202700067BB9 /* PetitionsRepo.swift in Sources */,
+				215DA4C32C58E2A700A07BF6 /* PetitionsRouter.swift in Sources */,
+				215DA4BD2C58E02000A07BF6 /* PetitionsInteractor.swift in Sources */,
+				215DA4AB2C58DF3800A07BF6 /* ViewController.swift in Sources */,
+				215DA4A72C58DF3800A07BF6 /* AppDelegate.swift in Sources */,
+				215DA4C12C58E25200A07BF6 /* PetitionsEntity.swift in Sources */,
+				215DA4A92C58DF3800A07BF6 /* SceneDelegate.swift in Sources */,
+				215DA4BF2C58E11100A07BF6 /* PetitionsPresenter.swift in Sources */,
+				2138E5962C5925C300067BB9 /* Utilities.swift in Sources */,
+				215DA4BB2C58DF4B00A07BF6 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		21D0B4742C47A8A70034D2A3 /* Main.storyboard */ = {
+		215DA4AC2C58DF3800A07BF6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				21D0B4752C47A8A70034D2A3 /* Base */,
+				215DA4AD2C58DF3800A07BF6 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		21D0B4792C47A8A90034D2A3 /* LaunchScreen.storyboard */ = {
+		215DA4B12C58DF3900A07BF6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				21D0B47A2C47A8A90034D2A3 /* Base */,
+				215DA4B22C58DF3900A07BF6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -206,7 +194,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		21D0B47D2C47A8A90034D2A3 /* Debug */ = {
+		215DA4B52C58DF3900A07BF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -269,7 +257,7 @@
 			};
 			name = Debug;
 		};
-		21D0B47E2C47A8A90034D2A3 /* Release */ = {
+		215DA4B62C58DF3900A07BF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -325,7 +313,7 @@
 			};
 			name = Release;
 		};
-		21D0B4802C47A8A90034D2A3 /* Debug */ = {
+		215DA4B82C58DF3900A07BF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -333,7 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HWS-33-35/Info.plist";
+				INFOPLIST_FILE = "VIPER-medium/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -344,7 +332,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "test.HWS-33-35";
+				PRODUCT_BUNDLE_IDENTIFIER = "test.VIPER-medium";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -352,7 +340,7 @@
 			};
 			name = Debug;
 		};
-		21D0B4812C47A8A90034D2A3 /* Release */ = {
+		215DA4B92C58DF3900A07BF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -360,7 +348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "HWS-33-35/Info.plist";
+				INFOPLIST_FILE = "VIPER-medium/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -371,7 +359,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "test.HWS-33-35";
+				PRODUCT_BUNDLE_IDENTIFIER = "test.VIPER-medium";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -382,25 +370,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		21D0B4662C47A8A70034D2A3 /* Build configuration list for PBXProject "HWS-33-35" */ = {
+		215DA49E2C58DF3800A07BF6 /* Build configuration list for PBXProject "VIPER-medium" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21D0B47D2C47A8A90034D2A3 /* Debug */,
-				21D0B47E2C47A8A90034D2A3 /* Release */,
+				215DA4B52C58DF3900A07BF6 /* Debug */,
+				215DA4B62C58DF3900A07BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21D0B47F2C47A8A90034D2A3 /* Build configuration list for PBXNativeTarget "HWS-33-35" */ = {
+		215DA4B72C58DF3900A07BF6 /* Build configuration list for PBXNativeTarget "VIPER-medium" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21D0B4802C47A8A90034D2A3 /* Debug */,
-				21D0B4812C47A8A90034D2A3 /* Release */,
+				215DA4B82C58DF3900A07BF6 /* Debug */,
+				215DA4B92C58DF3900A07BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 21D0B4632C47A8A70034D2A3 /* Project object */;
+	rootObject = 215DA49B2C58DF3800A07BF6 /* Project object */;
 }
