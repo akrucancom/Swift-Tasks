@@ -8,9 +8,14 @@
 import UIKit
 import WebKit
 
+protocol DetailControllerPresenterInteractor {}
+
+protocol DetailPresenterControllerInteractor {}
+
 class DetailViewController: UIViewController {
 	var webView: WKWebView!
 	var detailItem: Petition?
+	lazy var presenter = DetailPresenter(viewController: self)
 
 	override func loadView() {
 		webView = WKWebView()
@@ -36,6 +41,7 @@ class DetailViewController: UIViewController {
 		</body>
 		</html>
 		"""
+
 		webView.loadHTMLString(html, baseURL: nil)
 	}
 }
